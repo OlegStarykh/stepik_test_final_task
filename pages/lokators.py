@@ -11,3 +11,7 @@ class LoginPageLocators:
     PASSWORD_POLE_REG = ('xpath', '//*[@id="id_login-password"]')
     CONFIRM_PASSWORD_POLE_REG = ('xpath', '//*[@id="id_registration-password2"]')
 
+
+class ProductPageLocators:
+    ADD_TO_CART_BUTTON = ('xpath', '//*[@id="add_to_basket_form"]/button')
+
