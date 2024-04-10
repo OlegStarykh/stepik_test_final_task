@@ -18,6 +18,6 @@ class ProductPage(BasePage):
     def correct_product_added(self):
         a = self.driver.find_element('xpath', '//*[@id="content_inner"]/article/div[1]/div[2]/h1').text
         b = self.driver.find_element('xpath', '//*[@id="messages"]/div[1]/div/strong').text
-        assert a == b
+        assert a == b, 'product did not add to cart'
 
 
