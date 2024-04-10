@@ -14,4 +14,5 @@ class LoginPageLocators:
 
 class ProductPageLocators:
     ADD_TO_CART_BUTTON = ('xpath', '//*[@id="add_to_basket_form"]/button')
+    SUCCESS_MESSAGE = ('xpath', '(//*[@id="messages"]/div[1]/div/text())[2]')
 

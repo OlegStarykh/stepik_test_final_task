@@ -23,6 +23,8 @@ def driver():
     options.page_load_strategy = 'normal'
     options.add_argument('--window-size=920,1080')
     options.add_argument("--disable-blink-features=AutomationControlled")
+    options.add_experimental_option('excludeSwitches', ['enable-automation'])
+    options.add_experimental_option("useAutomationExtension", False)
     options.add_argument('--incognito')
     options.add_argument('--disable-cache')
     options.add_argument(
