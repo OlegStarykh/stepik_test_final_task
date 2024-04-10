@@ -47,7 +47,7 @@ class BasePage():
 
     def should_be_login_link(self):
         # wait = WebDriverWait(self.driver, 20, 1)
-        self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented on page"
+        assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented on page"
 
 
     def solve_quiz_and_get_code(self):
