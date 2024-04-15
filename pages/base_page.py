@@ -7,7 +7,7 @@ from .lokators import BasePageLocators
 import math
 
 
-class BasePage():
+class BasePage:
     def __init__(self, driver, url, timeout=10):
         self.driver = driver
         self.url = url
@@ -49,6 +49,9 @@ class BasePage():
         # wait = WebDriverWait(self.driver, 20, 1)
         assert self.is_element_present(*BasePageLocators.LOGIN_LINK), "Login link is not presented on page"
 
+    def go_to_basket_page(self):
+        link = self.driver.find_element(*BasePageLocators.BASKET_BUTTON)
+        link.click()
 
     def solve_quiz_and_get_code(self):
         alert = self.driver.switch_to.alert
@@ -63,7 +66,3 @@ class BasePage():
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
-
-
-
-

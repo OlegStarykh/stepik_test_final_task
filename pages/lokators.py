@@ -19,3 +19,9 @@ class ProductPageLocators:
 
 class BasePageLocators:
     LOGIN_LINK = ('xpath', '//*[@id="login_link"]')
+    BASKET_BUTTON = ('xpath', '//*[@id="default"]/header/div[1]/div/div[2]/span/a')
+
+
+class BasketPageLocators:
+    TOTAL_BASKET_PRICE = ('xpath', '//*[@id="basket_formset"]/div/div/div[5]/p/text()')
+
