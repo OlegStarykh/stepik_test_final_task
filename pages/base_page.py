@@ -7,6 +7,7 @@ from .lokators import BasePageLocators
 import math
 
 
+
 class BasePage:
     def __init__(self, driver, url, timeout=10):
         self.driver = driver
@@ -66,3 +67,6 @@ class BasePage:
             alert.accept()
         except NoAlertPresentException:
             print("No second alert presented")
+
+    def should_be_authorized_user(self):
+        assert self.is_element_present(*BasePageLocators.USER_ICON), "User icon is not presented"

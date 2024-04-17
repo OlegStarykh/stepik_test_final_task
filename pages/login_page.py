@@ -1,5 +1,6 @@
 from .base_page import BasePage
 from .lokators import LoginPageLocators
+import time
 
 
 class LoginPage(BasePage):
@@ -18,5 +19,21 @@ class LoginPage(BasePage):
 
     def should_be_register_form(self):
         assert self.is_element_present(*LoginPageLocators.EMAIL_POLE_REG), 'Email pole is not presented on registration'
-        assert self.is_element_present(*LoginPageLocators.PASSWORD_POLE_REG), 'Password pole is not presented on registration'
-        assert self.is_element_present(*LoginPageLocators.CONFIRM_PASSWORD_POLE_REG), 'Confirm password pole is not presented on registration'
+        assert self.is_element_present(
+            *LoginPageLocators.PASSWORD_POLE_REG), 'Password pole is not presented on registration'
+        assert self.is_element_present(
+            *LoginPageLocators.CONFIRM_PASSWORD_POLE_REG), 'Confirm password pole is not presented on registration'
+
+    def register_new_user(self, email, password):
+        self.driver.find_element(*LoginPageLocators.EMAIL_POLE_REG).send_keys(email)
+        self.driver.find_element(*LoginPageLocators.PASSWORD_POLE_REG).send_keys(password)
+        self.driver.find_element(*LoginPageLocators.CONFIRM_PASSWORD_POLE_REG).send_keys(password)
+        self.driver.find_element(*LoginPageLocators.REGISTER_BUTTON).click()
+
+    def register_new_fake_user(self):
+        email = str(time.time()) + "@fakemail.org"
+        password = 'Qwertyuiop000'
+        self.driver.find_element(*LoginPageLocators.EMAIL_POLE_REG).send_keys(email)
+        self.driver.find_element(*LoginPageLocators.PASSWORD_POLE_REG).send_keys(password)
+        self.driver.find_element(*LoginPageLocators.CONFIRM_PASSWORD_POLE_REG).send_keys(password)
+        self.driver.find_element(*LoginPageLocators.REGISTER_BUTTON).click()
